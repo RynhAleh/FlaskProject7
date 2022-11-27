@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="cont">
+<!--если была выборка из одной таблицы, то обращение к полю через: elem.поле -->
+<!--если была выборка из нескольких таблиц, то обращение к полю через: elem.Модель.поле-->
+    <table>
+    <tr><th style="min-width: 500px;">Наименование товара</th><th style="min-width: 180px;">Категория товара</th><th style="min-width: 200px;">Добавлен</th><th>Рейтинг</th><th></th><th></th></tr>
+    {% for elem in products %}
+    <tr style="background: linear-gradient(#fffcf6, #e3dfd9);">
+        <td style="padding: 0 10px 0 10px;" onclick=location.href="{{url_for('product', product_id=elem.Product.id, creator=creator, page=page, flt=flt, rtn=rtn, view=view)}}">{{ elem.Product.name }}</td>
+        <td style="padding: 0 10px 0 10px; text-align: center">
+            <span style="background-color: rgba({{ elem.Category.clr }});">&nbsp{{ elem.Product.category }}&nbsp</span>
+        </td>
+        <td style="padding: 0 10px 0 10px;">
+            {{ elem.Product.created_at }}
+        </td>
+        <td style="font-size: 20px; padding: 0 30px 0 30px;">
+                  {% set stars = elem.Product.rating | int %}
+                      {% for n in range(5) %}
+                        {% if n < stars %}
+                            <div class="fa-star-checked" style="display: inline-block">&#9733</div>
+                        {% else %}
+                            <div class="fa-star-unchecked" style="display: inline-block">&#10032</div>
+                        {% endif %}
+                      {% endfor %}
+
+        </td>
+        <td>
+          <button type="button" class="btn btn-info"
+                  onclick=location.href="{{ url_for('edit', product_id=elem.Product.id, page=page, flt=flt, creator=creator, rtn=rtn, view=view) }}" style="color:white">
+                  Изменить
+          </button>
+        </td>
+        <td>
+      <form action="{{ url_for('delete',product_id=elem.Product.id,flt=flt,creator=creator,rtn=rtn,view=view) }}" method="POST">
+            <button class='btn btn-danger' type="submit" value="Удалить" onclick="return confirm('Удалить товар?')"> Удалить</button>
+      </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+
+<div class="paging"> <!-- пагинатор -->
+    {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if products.page == page_num %}
+            <a class="btn btn-info" href="{{ url_for(view,flt=flt,creator=creator,rtn=rtn,page=page_num, view=view)}}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info" href="{{ url_for(view,flt=flt,creator=creator,rtn=rtn,page=page_num, view=view)}}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
+

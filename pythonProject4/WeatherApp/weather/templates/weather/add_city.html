@@ -1,0 +1,16 @@
+{% extends 'weather/_base.html' %}
+{% block title %}
+    Добавить город
+{% endblock %}
+{% block main %}
+            <form action="{% url 'add_city' %}" method="post" style="margin: 30px 30px 30px 30px;">
+                {% csrf_token %}
+                <input class="inputtext" type="text" name="name" placeholder="Введите город: "><br><br>
+                <button class="buttonadd" type="submit" value="Submit">Добавить</button>
+            </form>
+{% endblock %}
+{% block aside %}
+    Введите название города<br>
+    на английском языке, <br>
+    и нажмите кнопку "Добавить":<br><br>
+{% endblock %}

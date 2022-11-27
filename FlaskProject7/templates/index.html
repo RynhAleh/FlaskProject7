@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="cont">
+
+{% for elem in products %}
+    <div class="card">
+        <div class="el-card" style="height: 360px; margin-left: 2px;">
+            <img class="card-img" src="{{ url_for('send_file', filename=elem.Product.cover) }}" alt="{{ elem.Product.cover }}">
+        </div>
+            <span class="overlay2" style="background-color: rgba({{ elem.Category.clr }});">{{ elem.Product.category }}</span>
+        <div class="overlay btn btn-more" onclick=location.href="{{ url_for('product', product_id=elem.Product.id, creator=creator, page=page, flt=flt, rtn=rtn, view=view)}}">Подробнее</div>
+
+        <div class="el-card" style="margin-top: 10px; height: 62px; font-size: 18px; font-weight: bold">
+        {{ elem.Product.name }}
+        </div>
+        <div class="el-card" style="height: 35px; font-size:24px; font-weight: bold; margin: 5px 0 5px 0;">
+              <div>{% set stars = elem.Product.rating | int %}
+                  {% for n in range(5) %}
+                    {% if n < stars %}
+                        <span class="fa-star-checked">&#9733</span>
+                    {% else %}
+                        <span class="fa-star-unchecked">&#10032</span>
+                  {% endif %}
+                  {% endfor %}
+              </div>
+        </div>
+      <div class="el-card" style="height: 98px; font-size: 0.8em;">
+          {{ elem.Product.description }}
+      </div>
+      <div class="el-card" style="height: 49px;display: inline-flex; justify-content: space-evenly;">
+          <button type="button" class="btn btn-info"
+                  onclick=location.href="{{ url_for('edit', product_id=elem.Product.id, creator=creator, page=page, flt=flt, rtn=rtn, view=view) }}" style="color:white">
+                  Изменить
+          </button>
+          <form action="{{ url_for('delete', product_id=elem.Product.id,flt=flt,creator=creator,rtn=rtn,view=view) }}" method="POST">
+                <button class='btn btn-danger' type="submit" value="Удалить" onclick="return confirm('Удалить товар?')">Удалить</button>
+          </form>
+      </div>
+    </div>
+{% endfor %}
+</div>
+
+<div class="paging"> <!-- пагинатор -->
+    {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if products.page == page_num %}
+            <a class="btn btn-info" href="{{ url_for(view,flt=flt,creator=creator,rtn=rtn,page=page_num,view=view)}}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info" href="{{ url_for(view,flt=flt,creator=creator,rtn=rtn,page=page_num,view=view)}}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}   

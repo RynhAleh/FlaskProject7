@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--to right, white 25%, #d2f2fd-->
+<div style="padding-top: 50px;background: linear-gradient(to right, white 25%, #fcefe2)">
+        <div class="col-sm" style="width: 55%; border-right: #17a2b8 dotted 10px;">
+            <h2>{{ product.name }}</h2>
+            <h4>{{ product.created_at }}</h4>
+            <div class="col-sm2">
+                <div>
+                    <a href="{{ url_for('send_file', filename=product.cover) }}">
+                        <img src="{{ url_for('send_file', filename=product.cover) }}" style="width: 410px;height: 547px;" alt="Изображение {{ product.name }}">
+
+                    </a>
+                </div>
+                <h4 class="heading">Категория товара:</h4>
+                <span style="background-color: rgba({{ clr.clr }});">&nbsp{{ product.category }}&nbsp</span>
+            </div>
+            <div class="col-sm2">
+                <h4 class="heading">Описание товара:</h4>
+                <div style="height: 100px; width:400px; overflow: hidden">{{ product.description }}</div>
+                <h4 class="heading">Дополнительная информация о товаре:</h4>
+                <div style="height: 300px; width:400px; overflow: hidden">{{ product.notes }}</div>
+                <br>
+                <div class="heading" style="font-weight: bold">Моя оценка:</div>
+                <div style="font-size: 28px">
+                    {% set stars = product.rating | int %}
+                    {% for n in range(5) %}
+                        {% if n < stars %}
+                            <div class="fa-star-checked" style="display: inline-block">&#9733</div>
+                        {% else %}
+                            <div class="fa-star-unchecked" style="display: inline-block">&#10032</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div style="display: flex">
+                    <button type="button" class="btn btn-info"
+                        onclick=location.href="{{ url_for('edit',product_id=product.id,page=page,flt=flt,creator=creator,rtn=rtn,view=view) }}" style="color:white; text-decoration:none">
+                        Изменить
+                    </button>
+                    <form action="{{ url_for('delete',product_id=product.id,flt=flt,creator=creator,rtn=rtn,view=view) }}" method="POST">
+                        <button class='btn btn-danger' type="submit" value="Удалить" onclick="return confirm('Удалить товар?')"><i class="fa fa-times"></i> Удалить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm" style="width: 45%; padding: 0 30px 0 100px;">
+        <h4 class="heading">Информация о производителе:</h4>
+        <div id="photo">Фото </div>
+        <div>
+            <h4 class="heading">Б р е н д :</h4>
+            <h1>{{ aboutcreator.brand}}</h1>
+            <h4 class="heading">Наименование компании:</h4>
+            <h2>{{ aboutcreator.name}}</h2>
+            <h4 class="heading">Местонахождение компании:</h4>
+            <h3>{{ aboutcreator.address}}</h3>
+            <h4 class="heading">О компании «{{ aboutcreator.name }}»:</h4>
+            <p style="font-size: 12px;">{{ aboutcreator.info}}</p>
+        </div>
+        <div>
+            <button type="button" class="btn btn-info">Официальный сайт компании</button>
+            <button type="button" class="btn btn-info">Отзывы покупателей о компании</button>
+            <button type="button" class="btn btn-info">Рейтинг на Companies-rating</button>
+            <button type="button" class="btn btn-info">Иллюстрации и рисунки</button>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

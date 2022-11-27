@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ image_file }}">
+        <div class="media-body">
+          <h2>{% block title %} Редактировать информацию о товаре {% endblock %}</h2>
+          <p class="text-secondary">Фотографию можно добавить позже</p>
+        </div>
+      </div>
+        <form method="POST" action="" enctype="multipart/form-data" class="frm">
+            {{ form.csrf_token() }}
+            <fieldset class="form-group">
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    {% for message in messages %}
+                      <span class="text-danger">{{ message }}</span>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <legend class="heading">Изменение информации</legend><br>
+                {{ render_field(form.name, class_="form-input")}}<br>
+                {{ render_field(form.creator_id, class_="form-select")}}<br>
+                {{ render_field(form.category, class_="form-select")}}<br>
+                {{ render_field(form.rating, class_="form-select")}}<br>
+                {{ render_field(form.cover, class_="form-control-file")}}<br>
+                {{ render_field(form.description, class_="form-area")}}<br>
+                {{ render_field(form.notes, class_="form-area")}}
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

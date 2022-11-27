@@ -1,0 +1,342 @@
+#overone {
+    padding-left:5px;
+    font-size: 20px;
+    color: #adaba8
+}
+
+#overone:hover {
+    text-shadow: 0px 0px 10px #fd1afd;
+    color: #c51787;
+    transition:all 1s;
+}
+
+.fa-star-checked {
+    display: inline-flex;
+    color:orange;
+}
+.fa-star-unchecked {
+    display: inline-flex;
+    color: rgba(255, 165, 0, 0.4)
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.btn:not(:disabled):not(.disabled):hover {
+    box-shadow: 0 0 4px 3px rgba(.0, .0, .0, .2);
+    transition:all .3s;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #3e6c9a;
+    border-color: #3e6c9a;
+}
+.btn-primary:hover {
+    background-color: #0089dc;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #d23746;
+    border-color: #d23746;
+}
+.btn-danger:hover {
+    background-color: #fd2639;
+}
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-info:hover {
+    background-color: #00c6e1;
+}
+.btn-add {
+    color: #fff;
+    background-color: #489f49;
+    border-color: #489f49;
+}
+.btn-add:hover {
+    background-color: #45c747;
+}
+
+.btn-more {
+    color: rgba(255, 255, 255, 0.0);
+    line-height: 20em;
+    font-weight: 700;
+}
+.btn-more:hover {
+    display: block;
+
+    color: white;
+    background-color: rgba(239, 200, 200, 0.16);
+    /*border-color: rgba(0, 0, 0, 0.3);*/
+}
+
+.myselect {
+    background-color: #17a2b8;
+    color: #e4f4fa;
+    font-size: 18px;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.col-sm {
+    display: table-cell;
+    padding: 20px;
+}
+.col-sm2 {
+    display: inline-block;
+        padding: 0 0 0 20px;
+}
+/*
+span:hover .tobechanged {
+    display: block;
+}
+.tobechanged {
+    display: none;
+    width: 15em;
+    background-color: #17a2b8;
+    position: absolute;
+    top: 43px;
+    margin-left: 5px;
+    border-radius: 0.25rem
+}
+.tobechanged .invisible{
+    color: white;
+    height: 2em;
+    border-radius: 0.25rem
+}
+*/
+.nav-col {
+    display: flex;
+    justify-content: space-around;
+}
+.nav-col a{
+    display: flex;
+    justify-content: space-evenly;
+    /*color: Black;*/
+}
+nav {
+    flex: 0 0 auto;
+    display: flex;
+    background-color: #343a40;
+    height: 5em;
+    position: fixed;
+    width: 110%;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #e9eef3;
+    z-index: 10;
+}
+
+body {
+    margin: 0 0 0 0;
+    /*background-color: #faf6ee;*/
+    /*background: linear-gradient(to right, #e2e9ff, #e8dadf, #f9e7ff);*/
+    /*background: linear-gradient(to right, white 25%, #d2f2fd)*/
+    background: linear-gradient(#f8f0e4, white);
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+html {
+    margin: 0 0 0 0;
+    font-family: Verdana;
+    /*background-color:#343a40;*/
+}
+
+#photo {
+    border-radius: 20%;
+    background-color: #9cb2c4;
+    height: 60px;
+    width: 100px;
+    text-align: center;
+    padding-top: 40px;
+}
+.cont {
+    padding-top: 5em;
+    display: flex;
+    justify-content: center;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, .2);
+    transition:all .5s;
+}
+.card {
+    display: inline-block;
+    width: 265px;
+    margin: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    padding: 10px;
+    /*background-color: #efebe3;*/
+    background: linear-gradient(white 60%, #fcf5e9);
+    border-radius:1%;
+    position: relative; /* указывать в дочерних absolute */
+}
+.card-img {
+    width:260px;
+}
+.el-card {
+    width:260px;
+    overflow: hidden;
+    display: grid;
+    text-align: center;
+}
+.overlay {
+  position: absolute; /* указывать в родителе relative */
+  top:-0.3em;
+  left:-0.3em;
+  width: 260px;
+  height: 360px;
+}
+
+.overlay2 {
+  position: absolute; /* указывать в родителе relative */
+  top:20px;
+  left:0;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+.paging {
+    width: 100%;
+    text-align: center;
+}
+footer {
+    background-color:#343a40;
+    color: #808185;
+}
+.footer-cont {
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+}
+.footer-col {
+    display: table-cell;
+}
+.liststylenone {
+    list-style:none;
+    padding: 0;
+}
+
+.nolink a:link .nolink a:visited .nolink a:active   {
+    text-decoration:none;
+    color: inherit;
+}
+.nolink a:hover  {
+    color: #b8c7d9;
+}
+a {
+   text-decoration:none;
+}
+a:visited {
+   color:inherit;
+}
+
+/* соцсети */
+
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color: #515659;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover { background-color: #4c72c2}
+.social-icons a.twitter:hover { background-color:#00aced }
+.social-icons a.linkedin:hover { background-color:#17a2b8 }
+.social-icons a.telegram:hover { background-color: #52d0f6
+}
+
+/* формы */
+
+.form-input, .form-area, .form-select {
+    border: 2px #d0c5bb solid;
+    border-radius: 5px;
+    color: #395f75;
+}
+
+.form-input {
+    width: 500px;
+    height: 20px;
+}
+.form-area {
+    width: 500px;
+    max-width: 500px;
+    min-width: 500px;
+    height: 46px;
+}
+.form-select {
+    width: 120px;
+    height: 25px;
+}
+
+.content-section {
+    margin: 5em auto 0 auto;
+}
+.form-group {
+    border-color: #b0b0b0;
+    border-radius: 5px;
+    color: #3b5998;
+}
+.heading {
+    color: #113c93;
+}
+.errors {
+    color: red;
+}
+td:hover {
+    background: linear-gradient(#f3ecde, #e3ddce);
+}

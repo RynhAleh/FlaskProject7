@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Мои товары</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-col" style="width: 200px;">
+            <a id="overone" href="{{ url_for('index', flt='') }}">FOR IT OVERONE</a>
+        </div>
+        <div class="nav-col" style="width: 5%;"></div>
+        <!-- Ссылки -->
+        <div class="nav-col" style="width: 70%;">
+
+            <button class="btn btn-add btn-nav" onclick=location.href="{{url_for('create',creator=creator,flt=flt,rtn=rtn,view=view)}}">Добавить</button>
+
+            <a class="btn btn-info btn-nav" href="{{ url_for(view,view=view) }}" role="button" style="{% if flt=='' and creator==0 and rtn==0 %}box-shadow: 0 0 5px 3px #726e58;{% endif %}">Все товары</a>
+
+            <div style="margin-top: 5px; color: #adaba8; border: #4f4f4f 1px solid; border-radius: 5px;{% if flt!='' %} box-shadow: 0 0 5px 2px #aba067;{% endif %}">
+               &nbspКатегория:
+                <select class="myselect" style="margin-left: 20px;" onchange=location.href=this.options[this.selectedIndex].value>
+                    <option {%if flt=='' %}selected{% endif %} value="{{ url_for(view,flt='',creator=creator,rtn=rtn,view=view) }}">&nbspвсе категории&nbsp</option>
+                    {% for elem in categories %}
+                    <option {% if elem.category==flt %}selected{% endif %} value="{{ url_for(view,flt=elem.category,creator=creator,rtn=rtn,view=view) }}">&nbsp{{ elem.category }}&nbsp</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div style="margin-top: 5px; color: #adaba8; border: #4f4f4f 1px solid; border-radius: 5px;{% if creator!=0 %} box-shadow: 0 0 5px 2px #aba067;{% endif %}">
+               &nbspПроизводитель:
+                <select class="myselect" style="margin-left: 20px" onchange=location.href=this.options[this.selectedIndex].value>
+                    <option {% if creator==0 %}selected{% endif %} value="{{ url_for(view,flt=flt,creator=0,rtn=rtn,view=view) }}">&nbspвсе&nbsp</option>
+                    {% for elem in creators %}
+                    <option {% if elem.id==creator %}selected{% endif %} value="{{ url_for(view,flt=flt,creator=elem.id,rtn=rtn,view=view) }}">&nbsp{{ elem.brand }}&nbsp</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div style="margin-top: 5px; color: #adaba8; border: #4f4f4f 1px solid; border-radius: 5px;{% if rtn!=0 %} box-shadow: 0 0 5px 2px #aba067;{% endif %}">
+               &nbspРейтинг:
+                <select class="myselect" style="margin-left: 20px" onchange=location.href=this.options[this.selectedIndex].value>
+                    <option {% if rtn==0 %}selected{% endif %} value="{{ url_for(view,flt=flt,creator=creator,rtn=0,view=view) }}">&nbspвсе&nbsp</option>
+                    {% for i in range(5, 1, -1) %}
+                    <option {% if i==rtn %}selected{% endif %} value="{{ url_for(view,flt=flt,creator=creator,rtn=i,view=view) }}">&nbsp>={{ i }}&nbsp</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div style="margin-top: 5px; color: #adaba8; border: #4f4f4f 1px solid; border-radius: 5px">
+               &nbspВид:
+                <select class="myselect" style="margin-left: 20px" onchange="window.location.href=this.options[this.selectedIndex].value">
+                    <option {% if view=='index' %}selected{% endif %} value="{{ url_for('index',flt=flt,creator=creator,rtn=rtn,view='index') }}">&nbspкарточки&nbsp</option>
+                    <option {% if view=='rows' %}selected{% endif %} value="{{ url_for('rows',flt=flt,creator=creator,rtn=rtn,view='rows') }}">&nbspсписок&nbsp</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="nav-col" style="width: 25%;"></div>
+    </nav>
+      <!-- Карточки или список товаров -->
+      {% block content %} {% endblock %}
+
+<!-- Футер -->
+    <footer>
+          <div class="footer-col" style="width: 5%">
+          </div>
+          <div class="footer-col" style="width: 35%">
+            <h4>Ц И Т А Т А &#160 Д Н Я</h4>
+            <p class="text-justify">
+                «Бизнес вовсе не так сложен. Многие люди, обладающие весьма средними интеллектуальными способностями, зарабатывают достаточно.
+                Действительно умные люди могут получить настоящее богатство, если они действительно посвятят себя этому».<br><i>Джордж Сорос, американский инвестор</i></p>
+          </div>
+          <div class="footer-col" style="width: 10%">
+          </div>
+          <div class="footer-col" style="width: 25%">
+            <h4>Ф И Л И А Л Ы</h4>
+            <ul class="footer-links liststylenone nolink">
+              <li><a href="">г.Брест, ул.Первомайская, 10</a></li>
+              <li><a href="">г.Гомель, ул.Дзержинского, 5</a></li>
+              <li><a href="">г.Гродно, пер.Авиаторов, 33-1</a></li>
+              <li><a href="">г.Витебск, пр.Космонавтов, 11</a></li>
+              <li><a href="">г.Могилев, пр.Пушкинский, 19</a></li>
+              <li><a href="">г.Бобруйск, ул.Фрунзе, 43-3</a></li>
+            </ul>
+          </div>
+          <div class="footer-col" style="width: 25%">
+            <h4>Р А З Д Е Л Ы</h4>
+            <ul class="footer-links liststylenone nolink">
+              <li><a href="">Заказать оптовую партию</a></li>
+              <li><a href="">Отзывы на товары</a></li>
+              <li><a href="">Информация о производителях</a></li>
+              <li><a href="">Свидетельства о качестве</a></li>
+              <li><a href="">Дисклеймер</a></li>
+            </ul>
+          </div>
+        <hr>
+      <div class="footer-cont">
+          <div style="width: 75%">
+            <p class="copyright-text">&copy; 2022 Здесь информация о защите прав и прочее. Ринг О.В., г.Могилев.
+            </p>
+          </div>
+          <div style="width: 25%">
+            <ul class="social-icons" style="">
+              <li><a class="facebook" href="#"><img alt="facebook" src="{{ url_for('static', filename='images/facebook-circled.png') }}" style="width:34px; height:34px; margin-left: -1px; margin-top:5px;"><i class="fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><img alt="twitter" src="{{ url_for('static', filename='images/twitter.png') }}" style="width:33px; height:33px; margin-top:5px;"><i class="fa-twitter"></i></a></li>
+              <li><a class="telegram" href="#"><img alt="telegram" src="{{ url_for('static', filename='images/telegram.png') }}" style="width:34px; height:34px; margin-left: -1px; margin-top:5px;"><i class="fa-telegram"></i></a></li>
+              <li><a class="linkedin" href="#"><img alt="linkedin" src="{{ url_for('static', filename='images/linkedin-2.png') }}" style="width:33px; height:33px; margin-top:7px;"><i class="fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+</footer>
+</body>
+</html>

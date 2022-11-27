@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock%}</title>
+    <link rel="stylesheet" href="{% static 'weather/css/styles.css' %}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <!--<a href="https://overone.by/" style="margin-left: 10px; font-size: 25px; font-weight: bold; color: linear-gradient(#bdb9ee, #da9ad8);">IT OVERONE</a>-->
+            <img class="overone" src="{% static 'weather/img/image_.ico' %}" alt="logo" onclick="location.href='https://overone.by/';" style="height: 50px; width: 100px; margin-left: 30px;">
+            <div id="b1">
+                <a href="/">Главная страница</a>
+                <a href="/info">Информация</a>
+            </div>
+        </nav>
+    </header>
+    <div id="cont">
+        <aside>
+            <div style="font-family: Calibri Light; font-size: 22px;">
+                {% block aside %}{% endblock %}
+            </div>
+        </aside>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </div>
+    <footer>
+          (c) 2022, г. Могилев. Данный сайт был создан в рамках учебного курса учеником IT OVERONE Рингом Олегом Владимировичем.<br>
+    </footer>
+</body>
+</html>

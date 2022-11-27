@@ -1,0 +1,141 @@
+html {
+    font-family: Arial;
+    color: #2d4869;
+}
+
+header nav{
+    flex: 0 0 auto;
+    display: flex;
+    background: linear-gradient(#cffaff, #a1dbff);
+    height: 65px;
+    justify-content: space-between;
+    align-items: center;
+}
+header {
+    width: 100%;
+    position: fixed;
+    border-bottom: double #cfdfec;
+    font-size: 18px;
+}
+header #b1, a {
+    padding: 10px;
+}
+
+html,body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#cont {
+    display: flex;
+    flex-flow: row;
+    flex: 1 1 auto;
+    padding-top: 65px;
+    background: linear-gradient(#a1dbff, #cffaff);
+}
+
+aside {
+    padding: 20px 10px 10px 20px;
+    background: linear-gradient(#ade2ff, #e0f6fd);
+    flex: 0 0 300px;
+    border-right: double #cfdfec;
+    font-size: 16px;
+}
+main {
+  padding: 5px;
+  display:flex;
+  flex: 1 1 auto;
+}
+main div{
+  padding: 5px;
+  display: inline-block;
+}
+
+footer {
+    padding: 5px;
+    flex: 0 1 40px;
+    background: linear-gradient(#cefaff, #9ad3ff);
+      /*  background: linear-gradient(#bdb9ee, #da9ad8);*/
+    display: flex;
+    align-items: center;
+}
+
+.row {
+     border-radius: 30px 10px;
+     padding: 7px 1px 20px 20px;
+     margin: 10px;
+     display: inline-block;
+ }
+.wthr {
+     background: linear-gradient(#ffffff, #c8e8ff);
+}
+.plus {
+     outline: 10px solid transparent;
+     outline-offset: -10px;
+     cursor: pointer;
+     color: transparent;
+     transition: all .5s;
+}
+.plus:hover {
+     outline: 10px solid rgba(255, 255, 255, .3);
+     color: rgba(255, 255, 255, .3);
+}
+
+.row table {
+     display: inline-block;
+ }
+.row table .td {
+     padding-right: 10px;
+ }
+.row table .td2 {
+     width: 80px;
+ }
+
+.row table .cross {
+     color: #bbc4d9;
+     font-weight: bold;
+     transition:all .5s;
+ }
+.row table .cross:hover {
+     color: #e08989;
+/*     background: linear-gradient(#ffdddd, #ffefef);*/
+     background: rgba(255, 0, 0, 0.2);
+     border-radius: 7px 7px;
+ }
+.row img {
+    width: 70px;
+    height: 70px;
+}
+.inputtext {
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    color: #2d4869;
+    position: center;
+    background: rgba(255, 255, 255, .3);
+    border-radius: 7px 7px;
+}
+.buttonadd {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    color: #2f6279;
+    background: transparent;
+    border: 3px solid #2f6279;
+    border-radius: 7px 7px;
+}
+.buttonadd:hover {
+    background: linear-gradient(150deg, #41b3fa, #a7ddff);
+    transition:all .5s;
+    color: #2f6279;
+    border: 3px solid #2f6279;
+}
+.overone:hover {
+    cursor: pointer;
+}
