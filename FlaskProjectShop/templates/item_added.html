@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block cart %}
+{{ cart_button(12) }}
+{% endblock %}
+
+{% block content %}
+	<div class="header_bottom clearfix" style="height:150px; background-color:#e7e7e7;">
+
+	</div>
+	<div style="display:flex; flex-flow:column; height:100%;">
+		<div style="width: 100%; text-align: center; line-height:200px; font-size:40px;">Товар добавлен в корзину.</div>
+		<div style="width: 100%;display: flex;text-align: center; height: 100px;">
+			<div style="width: 50%;"><a class="custom_btn bg_electronic_blue" style="font-size:20px;" href="{{url_for('index')}}">Продолжить просмотр товаров</a></div>
+			<div style="width: 50%;"><a class="custom_btn bg_success" style="font-size:20px;" href="{{url_for('shop_cart')}}">Перейти к оплате</a></div>
+		</div>
+		<div style="width:100%"></div>
+	</div>
+{% endblock %}

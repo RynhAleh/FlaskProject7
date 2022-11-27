@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block cart %}
+{{ cart_button(cart_items_count) }}
+{% endblock %}
+
+{% block content %}
+	<div class="header_bottom clearfix" style="height:150px; background-color:#e7e7e7;">
+
+	</div>
+
+	<div class="modal-content clearfix">
+		<div class="item_image" style="width:30%; padding:30px;">
+			<img src="{{ url_for('send_file', filename=product.cover) }}" alt="image_not_found">
+		</div>
+		<div class="item_content" style="width:35%; padding:30px;">
+			<h2 class="item_title mb_15">{{ product.name }}</h2>
+			<p class="mb_30">
+				{{ product.description }}
+			</p>
+
+			<h1 style="color:Green;">{{ '{0:0.2f}'.format(product.price) }} BYN</h1>
+			<br>
+			<div class="quantity_form mb_30 clearfix">
+				<div class="quantity_input">
+					<strong class="list_title">Количество:&nbsp&nbsp&nbsp&nbsp</strong>
+					<span id="quantity_d" class="input_number_decrement">–</span>
+					<input id="quantity_c" name="quantity" class="input_number" type="text" value="1" readonly="readonly" style="font-size: 25px;">
+					<span id="quantity_i" class="input_number_increment">+</span>
+				</div>
+			</div>
+
+			<script src="{{ stat }}js/jquery.min.js"></script>
+			<script>
+				quantity_d.onclick = function () {
+					if (quantity_c.value>1) {quantity_c.value-=1};
+				}
+				quantity_i.onclick = function () {
+					quantity_c.value=Number(quantity_c.value)+1;
+				}
+			</script>
+
+			<br>
+			<ul class="btns_group ul_li mb_30 clearfix">
+				<li><a id="add_to_cart" class="custom_btn bg_carparts_red">Добавить в корзину</a></li>
+				<li><a href="#!" data-toggle="tooltip" data-placement="top" title="" data-original-title="Добавить в список желаний">&nbsp&nbsp&nbsp&nbsp<i class="fal fa-heart" style="font-size: 40px;">&nbsp</i></a></li>
+			</ul>
+			<script>
+				add_to_cart.onclick = function () {
+					cart_items_count_display.innerHTML=Number(cart_items_count_display.innerHTML)+Number(quantity_c.value);
+					$.getJSON('/add/'+{{product.id}}, {"add_quantity":quantity_c.value}, function() {});
+					if (cart_items_count_display.style.display=="none") cart_items_count_display.style.display="block";
+					shake(cart_button)
+				}
+			</script>
+
+			<ul class="info_list ul_li_block clearfix">
+				<li><strong class="list_title">Категория:</strong> {{ category.category }}</li>
+				<li class="social_icon"><strong class="list_title">Поделиться:</strong>
+					<a href="#!">&nbsp<i class="fab fa-facebook-f">&nbsp</i></a>
+					<a href="#!">&nbsp<i class="fab fa-twitter">&nbsp</i></a>
+					<a href="#!">&nbsp<i class="fab fa-instagram">&nbsp</i></a>
+					<a href="#!">&nbsp<i class="fab fa-pinterest-p">&nbsp</i></a>
+				</li>
+			</ul>
+		</div>
+		<div style="width:35%; padding:30px;">
+			Б р е н д:<br>
+			<h2 class="item_title mb_15">{{ creator.brand }}</h2>
+			Наименование предприятия-изготовителя:<br>
+			<h3>{{ creator.name }}</h3>
+			Местонахождение:<br>
+			<h4>{{ creator.address }}</h4>
+			Дополнительная информация:<br>
+			{{ creator.info }}
+
+		</div>
+	</div>
+{% endblock %}

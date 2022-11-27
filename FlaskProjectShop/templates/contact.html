@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block cart %}
+{{ cart_button(cart_items_count) }}
+{% endblock %}
+
+{% block content %}
+		<!-- main body - start
+		================================================== -->
+		<main>
+			<!-- breadcrumb_section - start
+			================================================== -->
+			<section class="breadcrumb_section text-white text-center text-uppercase d-flex align-items-end clearfix" data-background="static/images/breadcrumb/bg_01.jpg">
+				<div class="overlay" data-bg-color="#1d1d1d"></div>
+				<div class="container">
+					<h1 class="page_title text-white">контакты</h1>
+				</div>
+			</section>
+			<!-- breadcrumb_section - end
+			================================================== -->
+
+
+			<!-- map_section - start
+			================================================== -->
+			<div class="map_section clearfix">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9407.511476907563!2d30.342468929581656!3d53.88059916517782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d0518a217ab179%3A0xbe73a9d7327ee32b!2z0YPQu9C40YbQsCDQp9C40LPRgNC40L3QvtCy0LAgNSwg0JzQvtCz0LjQu9GR0LI!5e0!3m2!1sru!2sby!4v1668434898292!5m2!1sru!2sby" width="2000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+			<!-- map_section - end
+			================================================== -->
+
+
+			<!-- main_contact_section - start
+			================================================== -->
+			<section class="main_contact_section sec_ptb_100 clearfix">
+				<div class="container">
+					<div class="row justify-content-lg-between">
+
+						<div class="col-lg-5">
+							<div class="main_contact_content">
+								<h3 class="title_text mb_15">Связаться со мной</h3>
+								<p class="mb_50">
+									Если вы заинтересованы в работе со мной, вы можете связаться по указанным ниже реквизитам:
+								</p>
+								<ul class="main_contact_info ul_li_block clearfix">
+									<li>
+										<span class="icon">
+											<i class="fal fa-map-marked-alt"></i>
+										</span>
+										<p class="mb-0">
+											улица Чигринова, 5/113, г.Могилев, Республика Беларусь, 212002
+										</p>
+									</li>
+									<li>
+										<span class="icon">
+											<i class="fal fa-phone-volume"></i>
+										</span>
+										<p class="mb-0">+375293507345 - Мой мобильный</p>
+									</li>
+									<li>
+										<span class="icon">
+											<i class="fal fa-paper-plane"></i>
+										</span>
+										<p class="mb-0">workinplus@yandex.ru</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-lg-7">
+							<div class="main_contact_form">
+								<h3 class="title_text mb_30">Форма обратной связи</h3>
+								<form action="#">
+									<div class="row">
+										<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+											<div class="form_item">
+												<input type="text" name="name" placeholder="Ваше имя">
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+											<div class="form_item">
+												<input type="email" name="email" placeholder="Ваш Email">
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+											<div class="form_item">
+												<input type="text" name="subject" placeholder="Тема">
+											</div>
+										</div>
+									</div>
+
+									<div class="form_item">
+										<textarea name="message" placeholder="Ваше сообщение"></textarea>
+									</div>
+									<button type="submit" class="custom_btn bg_default_red text-uppercase">отправить</button>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<!-- main_contact_section - end
+			================================================== -->
+
+
+		</main>
+		<!-- main body - end
+		================================================== -->
+{% endblock %}

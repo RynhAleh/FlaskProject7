@@ -1,0 +1,15 @@
+{% macro cart_button(cnt) %}
+	<li>
+		<button id="cart_button" type="button" class="cart_btn" onclick=location.href="{{url_for('shop_cart')}}">
+			<i class="fal fa-shopping-cart"></i>
+				<span id="cart_items_count_display" class="btn_badge" style="display:{% if cnt %}block;">{{cnt}}{% else %}none;">0{% endif %}</span>
+		</button>
+	</li>
+{% endmacro %}
+{% macro search_button() %}
+	<li>
+		<button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
+			<i class="fal fa-search"></i>
+		</button>
+	</li>
+{% endmacro %}

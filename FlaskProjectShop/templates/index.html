@@ -1,0 +1,501 @@
+{% extends 'base.html' %}
+{% block search %}
+{{ search_button() }}
+{% endblock %}
+{% block cart %}
+{{ cart_button(cart_items_count) }}
+{% endblock %}
+
+{% block banner %}
+			<div class="header_top bg_black text-white clearfix" style="background-color: Yellow;">
+				<div class="container">
+					<div class="row align-items-center" style="color: Black;">
+						<div class="col-lg-6">
+							<span class="offer_text">Бесплатная доставка по заказам более 300 BYN !!!</span>
+						</div>
+						<div class="col-lg-6">
+							<ul class="primary_social_links ul_li_right clearfix" >
+								<li><a href="#!"><i class="fab fa-facebook-f"  style="color: Black;"></i></a></li>
+								<li><a href="#!"><i class="fab fa-twitter"  style="color: Black;"></i></a></li>
+								<li><a href="#!"><i class="fab fa-linkedin-in" style="color: Black;"></i></a></li>
+								<li><a href="#!"><i class="fab fa-instagram" style="color: Black;"></i></a></li>
+								<li><a href="#!"><i class="fab fa-google-play" style="color: Black;"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}
+
+{% block content %}
+			<!-- slider_section - start
+			================================================== -->
+			<section class="slider_section classic_ecommerce_slider position-relative clearfix">
+				<div class="main_slider clearfix" data-slick='{"arrows": false}'>
+					<div class="item d-flex align-items-center clearfix" data-background="{{ stat }}images/slider/classic_ecommerce/bg_01.jpg">
+						<div class="container">
+							<div class="slider_content">
+								<h3 data-animation="fadeInUp" data-delay=".6s" style="color: white; text-shadow: 0 0 7px rgb(33,56,87);">Новая домашняя коллекция:</h3>
+								<p data-animation="fadeInUp" data-delay=".8s" style="color: white; text-shadow: 0 0 7px rgb(33,56,87);">
+									Откройте для себя новые горизонты с технологиями будущего
+								</p>
+								<div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
+									<a href="#!" class="custom_btn bg_white text-uppercase">Узнать больше</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="item d-flex align-items-center clearfix" data-background="{{ stat }}images/slider/classic_ecommerce/bg_02.jpg">
+						<div class="container">
+							<div class="slider_content">
+								<h3 data-animation="fadeInUp" data-delay=".6s" style="color: white; text-shadow: 0 0 7px rgb(59,24,21);">Умные гаджеты:</h3>
+								<p data-animation="fadeInUp" data-delay=".8s" style="color: white; text-shadow: 0 0 7px rgb(59,24,21);">
+									Невероятный современный дизайн, быстрый отклик, еще больше функций
+								</p>
+								<div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
+									<a href="#!" class="custom_btn bg_white text-uppercase">Узнать больше</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="item d-flex align-items-center clearfix" data-background="{{ stat }}images/slider/classic_ecommerce/bg_03.jpg">
+						<div class="container">
+							<div class="slider_content">
+								<h3 data-animation="fadeInUp" data-delay=".6s" style="color: white; text-shadow: 0 0 7px black;">Бытовая техника нового поколения:</h3>
+								<p data-animation="fadeInUp" data-delay=".8s" style="color: white; text-shadow: 0 0 7px black;">
+									Теперь не нужно заботиться о вещах: технологии это сделают за вас
+								</p>
+								<div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
+									<a href="#!" class="custom_btn bg_white text-uppercase">Узнать больше</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="item d-flex align-items-center clearfix" data-background="{{ stat }}images/slider/classic_ecommerce/bg_04.jpg">
+						<div class="container">
+							<div class="slider_content">
+								<h3 data-animation="fadeInUp" data-delay=".6s" style="color: white; text-shadow: 0 0 7px black;">Больше времени для себя:</h3>
+								<p data-animation="fadeInUp" data-delay=".8s" style="color: white; text-shadow: 0 0 7px black;">
+									Доверьте рутинную работу технике - используйте время с пользой и удовольствием для себя
+								</p>
+								<div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
+									<a href="#!" class="custom_btn bg_white text-uppercase">Узнать больше</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- slider progress -->
+				<div class="slick-progress">
+					<span></span>
+				</div>
+			</section>
+			<!-- slider_section - end
+			================================================== -->
+
+			<!-- policy_section - start
+			================================================== -->
+			<section class="classic_ecommerce_policy d-flex align-items-center clearfix" data-bg-color="#f8f8f8">
+				<div class="container">
+					<div class="row mt__50">
+
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<div class="ecommerce_policy_item">
+								<div class="item_icon">
+									<img src="{{ stat }}images/policy/classic_ecommerce/icon_01.png" alt="icon_not_found">
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">Доставка по всей Беларуси</h3>
+									<p>Получите бесплатную доставку при покупке более чем на 300 BYN.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<div class="ecommerce_policy_item">
+								<div class="item_icon">
+									<img src="{{ stat }}images/policy/classic_ecommerce/icon_02.png" alt="icon_not_found">
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">Бесплатные возвраты</h3>
+									<p>30-дневная политика бесплатного возврата.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<div class="ecommerce_policy_item">
+								<div class="item_icon">
+									<img src="{{ stat }}images/policy/classic_ecommerce/icon_03.png" alt="icon_not_found">
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">Безопасные платежи</h3>
+									<p>Принимаем все основные кредитные карты.</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!-- policy_section - end
+			================================================== -->
+
+		<!-- main body - start
+		================================================== -->
+
+			<!-- category_section - start
+			================================================== -->
+			<section class="category_section sec_ptb_100 pb-0 clearfix">
+				<div class="container" style="box-shadow: 0px 0px 50px 0px #cbcbcb;">
+					<div class="ecommerce_category_masonry grid">
+						<div class="grid-sizer"></div>
+						<div class="grid-item w_66">
+							<div class="ce_offer_carousel position-relative clearfix">
+								<div class="slideshow1_slider" data-slick='{"dots": false}'>
+									<div class="item">
+										<div class="ce_offer_fullimage2 offer_fullimage text-white">
+											<img src="{{ stat }}images/category/classic_ecommerce/cat_comp.jpg" alt="image_not_found">
+											<div class="item_content">
+												<h3 class="item_title text-white">Специальное предложение:</h3>
+												<p>
+													Скидка 35% на коллекцию "Системный блок, монитор, клавиатура, мышь, наушники, коврик"
+												</p>
+												<a class="custom_btn bg_white text-uppercase" href="#!">Подробнее</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<div class="ce_offer_fullimage2 offer_fullimage text-white">
+											<img src="{{ stat }}images/category/classic_ecommerce/cat_laptop.jpg" alt="image_not_found">
+											<div class="item_content">
+												<h3 class="item_title text-white">Специальное предложение:</h3>
+												<p>
+													Скидка 35% на коллекцию "Игровой ноутбук ASUS ROG Zephyrus M, мышь, наушники, коврик"
+												</p>
+												<a class="custom_btn bg_white text-uppercase" href="#!">Смотреть коллекцию</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<div class="ce_offer_fullimage2 offer_fullimage text-white">
+											<img src="{{ stat }}images/category/classic_ecommerce/cat_phone.jpg" alt="image_not_found">
+											<div class="item_content">
+												<h3 class="item_title text-white">Специальное предложение:</h3>
+												<p>
+													Скидка 20% на любой смартфон Samsung до конца осени!
+												</p>
+												<a class="custom_btn bg_white text-uppercase" href="#!">Смотреть коллекцию</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="carousel_nav clearfix">
+									<button type="button" class="left_arrow"><i class="fal fa-angle-left"></i></button>
+									<button type="button" class="right_arrow"><i class="fal fa-angle-right"></i></button>
+								</div>
+							</div>
+						</div>
+						{% for elem in action %}
+						<div class="grid-item">
+							<div class="ecommerce_category_fullimage">
+								<img src="{{ url_for('send_file', filename=elem.cover) }}" alt="image_not_found">
+								<h3 class="item_title">
+									<a href="{{ url_for('item', id_product=elem.id) }}">{{ elem.name }}</a>
+								</h3>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+			<!-- category_section - end
+			================================================== -->
+
+
+			<!-- product_section - start
+			================================================== -->
+			<section class="product_section sec_ptb_100 clearfix">
+				<div class="container" style="box-shadow: 0px 0px 50px 0px #cbcbcb; padding: 15px 0">
+					<div class="row mb_30 align-items-center justify-content-lg-between">
+						<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+							<div class="ecommerce_section_title">
+								<h2 class="title_text mb-0">Популярные товары</h2>
+							</div>
+						</div>
+
+						<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+							<ul class="button-group filters-button-group ul_li_right clearfix">
+								<li><button class="active" data-filter="*">Все</button></li>
+                                {% for elem in category %}
+								<li><button data-filter=".f{{ elem.id }}">{{ elem.category }}</button></li>
+                                {% endfor %}
+								<!--<li><span class="filter_sidebar_btn" data-bg-color="#f9f9f9"><i class="far fa-bars"></i> ФИЛЬТР</span></li>-->
+							</ul>
+						</div>
+					</div>
+					<script>
+					function add_to_cart (id_product) {
+						cart_items_count_display.innerHTML=Number(cart_items_count_display.innerHTML)+1;
+						$.getJSON('/add/'+id_product, {"add_quantity":1}, function() {});
+						if (cart_items_count_display.style.display=="none") cart_items_count_display.style.display="block";
+						shake(cart_button);
+					}
+					</script>
+					<div class="element-grid column4_element_grid mb_50">
+						{% for elem in product %}
+						<div class="element-item f{{ elem.id_category }}" data-category="f{{ elem.id_category }}">
+							<div class="ecommerce_product_grid">
+								{% if elem.new %}
+								<ul class="product_label ul_li clearfix">
+									<li data-bg-color="#93be2b">New</li>
+								</ul>
+								{% endif %}
+								<div class="tab-content">
+									<div id="ptab{{elem.id}}_1" class="tab-pane fade active">
+										<div class="item_image">
+											<img src="{{ url_for('send_file', filename=elem.cover) }}" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab{{elem.id}}_2" class="tab-pane fade">
+										<div class="item_image">
+											<img src="{{ url_for('send_file', filename='default.jpg') }}" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab{{elem.id}}_3" class="tab-pane fade">
+										<div class="item_image">
+											<img src="{{ url_for('send_file', filename='default.jpg') }}" alt="image_not_found">
+										</div>
+									</div>
+									<ul class="product_action_btns ul_li_center clearfix">
+										<li><a class="tooltips" data-placement="top" title="Добавить в список желаний" href="#!"><i class="fal fa-heart"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Добавить в корзину" href="#!" onclick="add_to_cart({{elem.id}})"><i class="fal fa-shopping-basket"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Быстрый просмотр" href="{{ url_for('item', id_product=elem.id) }}"><i class="fal fa-search"></i></a></li>
+									</ul>
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">
+										<a href="{{ url_for('item', id_product=elem.id) }}">{{ elem.name }}</a>
+									</h3>
+									<ul class="product_color ul_li nav clearfix">
+										<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab{{elem.id}}_1"></a></li>
+										<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab{{elem.id}}_2"></a></li>
+										<li><a class="pbg_gray" data-toggle="tab" href="#ptab{{elem.id}}_3"></a></li>
+									</ul>
+									<span class="item_price"><strong>{{ '{0:0.2f}'.format(elem.price) }} BYN</strong> <del>{{ '{0:0.2f}'.format(elem.price * ((range(101, 131) | random)/100))  }} BYN</del></span>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+
+					<div class="load_more text-center clearfix">
+						<a class="custom_btn bg_gray text-uppercase" href="#!">ещё товары</a>
+					</div>
+				</div>
+			</section>
+
+			<!--
+			<div class="sidebar-menu-wrapper">
+				<div class="filter_sidebar">
+					<button type="button" class="close_btn mb_50"><i class="fal fa-times"></i></button>
+					<div class="fs_widget fs_category_list">
+						<h3 class="fs_widget_title text-uppercase">Категории товаров</h3>
+						<ul class="ul_li_block clearfix">
+							{% for elem in category %}
+							<li><a href="#!"><span><i class="fab"></i></span>{{ elem.category }}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+
+					<div class="fs_widget fs_price_list">
+						<h3 class="fs_widget_title text-uppercase">Диапазон цен</h3>
+						<form action="#">
+							<ul class="ul_li_block clearfix">
+								<li>
+									<input id="fs_price_1" type="radio" name="fs_price_wroup" checked>
+									<label for="fs_price_1">до 200 BYN</label>
+								</li>
+								<li>
+									<input id="fs_price_2" type="radio" name="fs_price_wroup">
+									<label for="fs_price_2">200 - 400 BYN</label>
+								</li>
+								<li>
+									<input id="fs_price_3" type="radio" name="fs_price_wroup">
+									<label for="fs_price_3">400 - 800 BYN</label>
+								</li>
+								<li>
+									<input id="fs_price_4" type="radio" name="fs_price_wroup">
+									<label for="fs_price_4">800 - 1600 BYN</label>
+								</li>
+								<li>
+									<input id="fs_price_5" type="radio" name="fs_price_wroup">
+									<label for="fs_price_5">свыше 1600 BYN</label>
+								</li>
+							</ul>
+						</form>
+					</div>
+
+					<div class="fs_widget fs_color_list">
+						<h3 class="fs_widget_title text-uppercase">Цвет товара</h3>
+						<form action="#">
+							<ul class="ul_li clearfix">
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#ffa037"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#6c7ae0"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#f23226"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#828664"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#68a3c2"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#009122"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#0099f7"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#bb8c80"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#ffa037"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#875546"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#f74877"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#1f1e29"></li>
+								<li><input type="radio" name="fs_color_froup" data-bg-color="#dddddd"></li>
+							</ul>
+						</form>
+					</div>
+
+					<div class="fs_widget fs_size_list">
+						<h3 class="fs_widget_title text-uppercase">Размеры</h3>
+						<form action="#">
+							<ul class="ul_li clearfix">
+								<li>
+									<label for="fs_size_1"><input id="fs_size_1" type="radio" name="fs_size_group">XS</label>
+								</li>
+								<li>
+									<label for="fs_size_2"><input id="fs_size_2" type="radio" name="fs_size_group">S</label>
+								</li>
+								<li>
+									<label for="fs_size_3"><input id="fs_size_3" type="radio" name="fs_size_group">M</label>
+								</li>
+								<li>
+									<label for="fs_size_4"><input id="fs_size_4" type="radio" name="fs_size_group">L</label>
+								</li>
+								<li>
+									<label for="fs_size_5"><input id="fs_size_5" type="radio" name="fs_size_group">XL</label>
+								</li>
+								<li>
+									<label for="fs_size_6"><input id="fs_size_6" type="radio" name="fs_size_group">XXL</label>
+								</li>
+							</ul>
+						</form>
+					</div>
+
+					<div class="fs_widget fs_realted_post">
+						<h3 class="fs_widget_title text-uppercase">Возможно, вам понравится</h3>
+						<div class="small_blog">
+							<a href="blog_details.html" class="item_image">
+								<img src="{{ stat }}images/recent_post/img_01.jpg" alt="image_not_found">
+							</a>
+							<div class="item_content">
+								<h3 class="item_title">
+									<a href="blog_details.html">
+										Смартфон Samsung A32
+									</a>
+								</h3>
+								<span class="post_date">Ноябрь 12, 2022</span>
+							</div>
+						</div>
+
+						<div class="small_blog">
+							<a href="blog_details.html" class="item_image">
+								<img src="{{ stat }}images/recent_post/img_01.jpg" alt="image_not_found">
+							</a>
+							<div class="item_content">
+								<h3 class="item_title">
+									<a href="blog_details.html">
+										Микроволновая печь LG A5612
+									</a>
+								</h3>
+								<span class="post_date">Ноябрь 10, 2022</span>
+							</div>
+						</div>
+
+						<div class="small_blog">
+							<a href="blog_details.html" class="item_image">
+								<img src="{{ stat }}images/recent_post/img_01.jpg" alt="image_not_found">
+							</a>
+							<div class="item_content">
+								<h3 class="item_title">
+									<a href="blog_details.html">
+										Телевизор HORIZONT LT-2851
+									</a>
+								</h3>
+								<span class="post_date">Октябрь 23, 2022</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			product_section - end
+			================================================== -->
+
+
+			<!-- offer_section - start
+			================================================== -->
+			<section class="offer_section clearfix">
+				<div class="container-fluid p-0">
+					<div class="row no-gutters justify-content-lg-between">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="ce_offer_fullimage offer_fullimage text-white text-center">
+								<img src="{{ stat }}images/offer/classic_ecommerce/img_01.jpg" alt="image_not_found">
+								<div class="item_content">
+									<h3 class="item_title text-white mb_15">Наш блог</h3>
+									<a class="text_btn text-uppercase" href="#!"><span>Смотреть все посты</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="ce_offer_fullimage offer_fullimage text-white text-center">
+								<img src="{{ stat }}images/offer/classic_ecommerce/img_02.jpg" alt="image_not_found">
+								<div class="item_content">
+									<h3 class="item_title text-white mb_15">Следите за новостями в Instagram</h3>
+									<a class="text_btn text-uppercase" href="#!"><span>@online_shop</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- offer_section - end
+			================================================== -->
+
+
+			<!-- newsletter_section - start
+			================================================== -->
+			<section class="newsletter_section ecommerce_newsletter sec_ptb_100 clearfix">
+				<div class="container">
+					<div class="form_wrap text-center">
+						<form action="#">
+							<h2>Начните зиму с более чем 35% скидкой на все товары!</h2>
+							<div class="form_item">
+								<input type="email" name="email" placeholder="Ваш email адрес">
+								<button type="submit" class="bg_black">Подписаться</button>
+							</div>
+							<p class="mb-0">
+								Подпишитесь на нашу рассылку и получите код на скидку!
+							</p>
+						</form>
+					</div>
+				</div>
+			</section>
+			<!-- newsletter_section - end
+			================================================== -->
+
+
+		<!-- main body - end
+		================================================== -->
+
+
+{% endblock %}

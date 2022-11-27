@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--================================================== -->
+
+			<!-- breadcrumb_section - start
+			================================================== -->
+			<section class="breadcrumb_section text-white text-center text-uppercase d-flex align-items-end clearfix" data-background="{{ stat }}images/breadcrumb/slider1.jpg">
+				<div class="overlay" data-bg-color="#1d1d1d"></div>
+				<div class="container">
+					<h1 class="page_title text-white">Покупки к оплате</h1>
+				</div>
+			</section>
+			<!-- breadcrumb_section - end
+			================================================== -->
+
+
+			<!-- cart_section - start
+			================================================== -->
+			<section class="cart_section sec_ptb_140 clearfix">
+				<div class="container">
+
+					<div class="cart_table mb_50">
+						<table class="table">
+							<thead class="text-uppercase" style="text-align: center">
+								<tr>
+									<th>Наименование товара</th>
+									<th>Цена</th>
+									<th>Количество</th>
+									<th>Стоимость</th>
+								</tr>
+							</thead>
+							<tbody>
+								<script src="{{ stat }}js/jquery.min.js"></script>
+								<script>
+									function UpdateElem(id_product,elem1, elem2, elem3, direction) {
+										elem1.innerHTML=(Number(''+elem2.innerHTML)*Number(elem3.value)).toFixed(2) + ' BYN'
+										total.innerHTML=(Number((''+total.innerHTML).slice(-20,-4))+Number(elem2.innerHTML)*direction).toFixed(2) + ' BYN'
+										$.getJSON('/change/'+id_product, {"q":direction}, function() {});
+									}
+									function DeleteElem(id_product,elem2,elem3) {
+										total.innerHTML=(Number((''+total.innerHTML).slice(-20,-4))-(Number(''+elem2.innerHTML)*Number(elem3.value))).toFixed(2) + ' BYN';
+										if (total.innerHTML == '0.00 BYN') to_pay.style.display='none'; else to_pay.style.display='';
+										$.getJSON('/delete/'+id_product, function() {});
+									}
+								</script>
+
+								{% set total = namespace(sum=0) %}
+								{% for elem in cart %}
+									{% set idp=elem.Cart.id_product %}
+									{% set total_price=elem.Product.price * elem.Cart.quantity %}
+									{% set total.sum = total.sum + total_price %}
+									<tr id="tr_{{idp}}">
+										<td>
+											<div class="cart_product">
+												<div class="item_image" style="max-width:100px;">
+													<img src="{{ url_for('send_file', filename=elem.Product.cover) }}" alt="image_not_found">
+												</div>
+												<div class="item_content">
+													<h4 class="item_title" onclick=location.href="{{url_for('item',id_product=idp)}}">{{ elem.Product.name }}</h4>
+													<span class="item_type">{{ elem.Category.category }}</span>
+												</div>
+												<button id="remove_{{idp}}" type="button" class="remove_btn">
+													<i class="fal fa-times"></i>
+												</button>
+											</div>
+										</td>
+										<td style="text-align: center">
+											<span id="price_{{idp}}" class="price_text">{{ '{0:0.2f}'.format(elem.Product.price) }}</span>
+										</td>
+										<td style="text-align: center; width:300px;">
+											<div class="quantity_input">
+												<form class="noselectbackground">
+													<a id="quantity_{{idp}}_d"><span class="input_number_decrement">–</span></a>
+													<input id="quantity_{{idp}}" class="input_number" type="text" value="{{ elem.Cart.quantity }}" readonly="readonly">
+													<a id="quantity_{{idp}}_i"><span class="input_number_increment">+</span></a>
+												</form>
+											</div>
+										</td>
+										<td style="text-align: right; width:200px;">
+											<span id="total_{{idp}}" class="total_price">{{ '{0:0.2f}'.format(total_price) }} BYN</span>
+										</td>
+									</tr>
+									<script>
+										remove_{{idp}}.onclick = function () {
+											$('#tr_{{idp}}').hide();
+											DeleteElem({{idp}},price_{{idp}},quantity_{{idp}});
+										}
+										quantity_{{idp}}_d.onclick = function () {
+											if (quantity_{{idp}}.value>1) {quantity_{{idp}}.value-=1; UpdateElem({{idp}},total_{{idp}},price_{{idp}},quantity_{{idp}},-1)};
+										}
+										quantity_{{idp}}_i.onclick = function () {
+											quantity_{{idp}}.value=Number(quantity_{{idp}}.value)+1; UpdateElem({{idp}},total_{{idp}},price_{{idp}},quantity_{{idp}},+1);
+										}
+									</script>
+								{% endfor %}
+
+
+<!--								<tr id="tr_01">-->
+<!--									<td>-->
+<!--										<div class="cart_product">-->
+<!--											<div class="item_image">-->
+<!--												<img src="assets/images/cart/img_04.jpg" alt="image_not_found">-->
+<!--											</div>-->
+<!--											<div class="item_content">-->
+<!--												<h4 class="item_title">Men's Polo T-shirt</h4>-->
+<!--												<span class="item_type">Clothes</span>-->
+<!--											</div>-->
+<!--											<button id="remove_01" type="button" class="remove_btn">-->
+<!--												<i class="fal fa-times"></i>-->
+<!--											</button>-->
+<!--										</div>-->
+<!--									</td>-->
+<!--									<td style="text-align: center">-->
+<!--										<span id="price_01" class="price_text">69.00</span>-->
+<!--									</td>-->
+<!--									<td style="text-align: center">-->
+<!--										<div class="quantity_input">-->
+<!--											<form class="noselectbackground">-->
+<!--												<a id="quantity_01_d"><span class="input_number_decrement">–</span></a>-->
+<!--												<input id="quantity_01" class="input_number" type="text" value="2" readonly="readonly">-->
+<!--												<a id="quantity_01_i"><span class="input_number_increment">+</span></a>-->
+<!--											</form>-->
+<!--										</div>-->
+<!--									</td>-->
+<!--									<td style="text-align: right;">-->
+<!--										<span id="total_01" class="total_price">138.00 BYN</span>-->
+<!--									</td>-->
+<!--								</tr>-->
+<!--								<script>-->
+<!--									remove_01.onclick = function () {-->
+<!--										$('#tr_01').hide();-->
+<!--										DeleteElem(1,price_01,quantity_01);-->
+<!--									}-->
+<!--									quantity_01_d.onclick = function () {-->
+<!--										if (quantity_01.value>1) {quantity_01.value-=1;	UpdateElem(1,total_01,price_01,quantity_01,-1);}-->
+<!--									}-->
+<!--									quantity_01_i.onclick = function () {-->
+<!--										quantity_01.value=Number(quantity_01.value)+1; UpdateElem(1,total_01,price_01,quantity_01,+1);-->
+<!--									}-->
+<!--								</script>-->
+							</tbody>
+						</table>
+					</div>
+
+					<div class="row justify-content-lg-end">
+						<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+							<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#ededed">
+								<h3 class="table_title text-center" data-bg-color="#ededed">Всего к оплате:</h3>
+								<div class="cart_table" style="text-align: right;">
+									<div id="total" class="total_price" style="font-size:25px; height: 60px;">{{ '{0:0.2f}'.format(total.sum) }} BYN</div>
+								</div>
+								<script>
+									function prepare_sum_to_pay() {
+										to_pay.href=to_pay.href.replace('sum_to_pay',parseInt(Number((''+total.innerHTML).slice(-20,-4))*100,10));
+									}
+								</script>
+								<a id="to_pay" onclick="prepare_sum_to_pay()" href="{{ url_for('payment',amount='sum_to_pay') }}" class="custom_btn bg_success">Оплатить</a>
+								<script>
+										if (total.innerHTML == '0.00 BYN') to_pay.style.display='none'; else to_pay.style.display='';
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- cart_section - end
+			================================================== -->
+
+
+		<!-- main body - end
+		================================================== -->
+{% endblock %}
